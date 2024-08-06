@@ -13,7 +13,7 @@ ThemeData darktheme= ThemeData(
     backgroundColor: HexColor('#333739'),
     elevation: 0.0,
     titleTextStyle: TextStyle(
-        color: Colors.white,
+        color: Colors.black,
         fontSize: 25,
         fontWeight: FontWeight.bold
     ),
@@ -22,7 +22,7 @@ ThemeData darktheme= ThemeData(
     ),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
-    backgroundColor:  HexColor('#80532a'),
+    backgroundColor:  HexColor('#dba06b'),
     elevation: 0.0,
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -32,14 +32,6 @@ ThemeData darktheme= ThemeData(
     elevation: 30.0,
     backgroundColor: HexColor('#333739'),
   ),
-  textTheme: TextTheme(
-    bodyLarge: TextStyle(
-      fontSize: 18.0,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
-    ),
-  ),
-  fontFamily: 'Jannah',
 );
 
 
@@ -49,7 +41,7 @@ ThemeData lighttheme= ThemeData(
     titleSpacing: 25.0,
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor:Colors.white,
-      statusBarIconBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark,
     ),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -62,14 +54,5 @@ ThemeData lighttheme= ThemeData(
     unselectedItemColor: HexColor('#301c06'),
     elevation: 30.0,
   ),
-  textTheme: TextTheme(
-    bodyLarge: TextStyle(
-      fontSize: 20.0,
-      fontWeight: FontWeight.bold,
-      color:HexColor('#301c06'),
-    ),
-  ),
-  fontFamily: 'Jannah',
-
 
 );

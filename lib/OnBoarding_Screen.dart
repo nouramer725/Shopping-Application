@@ -66,11 +66,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             },
             child: Text(
               'SKIP',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: HexColor('#80532a'),
-              ),
+                fontSize: 20,
+              )
             ),
           ),
         ],
@@ -127,8 +126,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     }
                   },
                   child: Icon(Icons.arrow_forward_ios,
-                  color: Colors.white,),
-                  elevation: 20,
+                  color: Colors.white,
+                  ),
+                  elevation: 50,
                 ),
               ],
             ),
@@ -163,12 +163,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
         Text(
           '${model.body}',
-          style: TextStyle(
-            fontSize: 17,
-            color: HexColor('#dba06b'),
-
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: HexColor('#dba06b'),
+            fontSize: 19
           ),
-        ),
+          ),
       ],
     ),
   );
