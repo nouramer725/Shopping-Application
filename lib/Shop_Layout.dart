@@ -22,7 +22,6 @@ class ShopLayout extends StatelessWidget {
               child: Text(
                   'SHOP',
                 style: Theme.of(context).textTheme.bodyLarge,
-
               ),
             ),
             actions: [
