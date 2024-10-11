@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +16,9 @@ class ShopRegisterScreen extends StatelessWidget
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var phoneController = TextEditingController();
-  var _passwordController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  ShopRegisterScreen({super.key});
 
 
   @override
@@ -98,6 +98,7 @@ class ShopRegisterScreen extends StatelessWidget
                             if (value == null || value.isEmpty) {
                               return 'please enter your name';
                             }
+                            return null;
                           },
                           label: 'User Name',
                           prefix: Icons.person,
@@ -112,6 +113,7 @@ class ShopRegisterScreen extends StatelessWidget
                             if (value == null || value.isEmpty) {
                               return 'please enter your email address';
                             }
+                            return null;
                           },
                           label: 'Email Address',
                           prefix: Icons.email_outlined,
@@ -136,6 +138,7 @@ class ShopRegisterScreen extends StatelessWidget
                             if (value == null || value.isEmpty) {
                               return 'password is too short';
                             }
+                            return null;
                           },
                           label: 'Password',
                           prefix: Icons.lock_outline,
@@ -176,6 +179,7 @@ class ShopRegisterScreen extends StatelessWidget
                             if (value == null || value.isEmpty) {
                               return 'please enter your phone number';
                             }
+                            return null;
                           },
                           label: 'Phone',
                           prefix: Icons.phone,
