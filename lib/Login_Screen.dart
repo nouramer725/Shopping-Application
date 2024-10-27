@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:shopapplication/Shop_Layout.dart';
-import 'package:shopapplication/network/local/cache_helper.dart';
-import 'package:shopapplication/registrationscreen.dart';
+import 'package:shopping_app/registrationscreen.dart';
 import 'Shared/components.dart';
 import 'Shared/constants.dart';
+import 'Shop_Layout.dart';
 import 'cubit_login/cubit.dart';
 import 'cubit_login/states.dart';
 import 'models/login_model.dart';
+import 'network/local/cache_helper.dart';
 
 
 class ShopLoginScreen extends StatefulWidget {

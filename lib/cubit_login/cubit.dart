@@ -1,9 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopapplication/cubit_login/states.dart';
-import 'package:shopapplication/models/login_model.dart';
-import 'package:shopapplication/network/end_points.dart';
-import 'package:shopapplication/network/remote/dio_helper.dart';
+import 'package:shopping_app/cubit_login/states.dart';
+
+import '../models/login_model.dart';
+import '../network/end_points.dart';
+import '../network/remote/dio_helper.dart';
 
 
 class ShopLoginCubit extends Cubit<ShopLoginStates> {

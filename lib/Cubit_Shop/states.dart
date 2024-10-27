@@ -1,6 +1,7 @@
-import 'package:shopapplication/cubit_login/cubit.dart';
-import 'package:shopapplication/models/ChangeFavorites_Model.dart';
 
+
+import '../cubit_login/cubit.dart';
+import '../models/ChangeFavorites_Model.dart';
 
 abstract class ShopStates {}
 

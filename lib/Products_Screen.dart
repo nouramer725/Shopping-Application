@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:shopapplication/Cubit_Shop/cubit.dart';
-import 'package:shopapplication/Cubit_Shop/states.dart';
-import 'package:shopapplication/models/Home_mode.dart';
+import 'Cubit_Shop/cubit.dart';
+import 'Cubit_Shop/states.dart';
 import 'Shared/components.dart';
+import 'models/Home_mode.dart';
 import 'models/categoriesModel.dart';
 
 

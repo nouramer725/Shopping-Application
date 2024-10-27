@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:shopapplication/Login_Screen.dart';
-import 'package:shopapplication/Shared/components.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Onboarding {
   final String image;
@@ -24,12 +23,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   List<Onboarding> boarding = [
     Onboarding(
       image: 'assets/images/1.png',
-      title: ' Shop Millions of Products ',
-      body: 'Everything You Need, Delivered , millions of products across every category, from everyday essentials to the latest tech. Enjoy fast, reliable shipping, easy returns, and unbeatable prices.',
+      title: 'Shop Millions of Products',
+      body: 'Everything You Need, Delivered, millions of products across every category, from everyday essentials to the latest tech. Enjoy fast, reliable shipping, easy returns, and unbeatable prices.',
     ),
     Onboarding(
       image: 'assets/images/22.png',
-      title: ' Don\'t Miss Out! Huge Savings on Thousands of Items.',
+      title: 'Don\'t Miss Out! Huge Savings on Thousands of Items.',
       body: 'It\'s time to shop til you drop! Our massive sale is here, with incredible discounts on everything from fashion to electronics, home goods to beauty, and so much more.',
     ),
     Onboarding(
@@ -40,7 +39,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   ];
 
   var swipeController = PageController();
-
   bool isLast = false;
 
   @override
@@ -62,14 +60,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           TextButton(
             onPressed: () {
-              navigateandfinish(context, ShopLoginScreen());
+              // Navigate to login screen
+              // navigateandfinish(context, ShopLoginScreen());
             },
             child: Text(
               'SKIP',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: HexColor('#80532a'),
                 fontSize: 20,
-              )
+              ),
             ),
           ),
         ],
@@ -83,23 +82,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 physics: BouncingScrollPhysics(),
                 controller: swipeController,
                 onPageChanged: (index) {
-                  if (index == boarding.length - 1) {
-                    setState(() {
-                      isLast = true;
-                    });
-                  } else {
-                    setState(() {
-                      isLast = false;
-                    });
-                  }
+                  setState(() {
+                    isLast = index == boarding.length - 1;
+                  });
                 },
                 itemBuilder: (context, index) => buildOnBoarding(boarding[index]),
                 itemCount: boarding.length,
               ),
             ),
-            SizedBox(
-              height: 35,
-            ),
+            SizedBox(height: 35),
             Row(
               children: [
                 SmoothPageIndicator(
@@ -117,7 +108,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 FloatingActionButton(
                   onPressed: () {
                     if (isLast) {
-                      navigateandfinish(context, ShopLoginScreen());
+                      // Navigate to login screen
+                      // navigateandfinish(context, ShopLoginScreen());
                     } else {
                       swipeController.nextPage(
                         duration: Duration(milliseconds: 500),
@@ -125,9 +117,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       );
                     }
                   },
-                  child: Icon(Icons.arrow_forward_ios,
-                  color: Colors.white,
-                  ),
+                  child: Icon(Icons.arrow_forward_ios, color: Colors.white),
                   elevation: 50,
                 ),
               ],
@@ -141,33 +131,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget buildOnBoarding(Onboarding model) => SingleChildScrollView(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Center(
-          child: Image(
-            image: AssetImage('${model.image}'),
-          ),
+          child: Image(image: AssetImage(model.image)),
         ),
-        SizedBox(
-          height: 20,
-        ),
+        SizedBox(height: 20),
         Text(
-          '${model.title}',
-          style: TextStyle(
-            fontSize: 25,
-            color: HexColor('#80532a'),
-          ),
+          model.title,
+          style: TextStyle(fontSize: 25, color: HexColor('#80532a')),
         ),
-        SizedBox(
-          height: 20,
-        ),
+        SizedBox(height: 20),
         Text(
-          '${model.body}',
+          model.body,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: HexColor('#dba06b'),
-            fontSize: 19
+            color: HexColor('#dba06b'),
+            fontSize: 19,
           ),
-          ),
+        ),
       ],
     ),
   );
@@ -176,10 +156,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 class ThemeProvider extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.light;
 
+  ThemeProvider() {
+    _loadTheme();
+  }
+
   ThemeMode get themeMode => _themeMode;
 
   void toggleTheme() {
     _themeMode = _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    _saveTheme(_themeMode);
     notifyListeners();
+  }
+
+  Future<void> _loadTheme() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? themeIndex = prefs.getInt('theme');
+    _themeMode = (themeIndex == 1) ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
+
+  Future<void> _saveTheme(ThemeMode mode) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt('theme', (mode == ThemeMode.dark) ? 1 : 0);
   }
 }

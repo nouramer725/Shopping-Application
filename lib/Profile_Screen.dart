@@ -2,10 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopapplication/Cubit_Shop/cubit.dart';
-import 'package:shopapplication/Cubit_Shop/states.dart';
-import 'package:shopapplication/Shared/components.dart';
-import 'package:shopapplication/Shared/constants.dart';
+
+import 'Cubit_Shop/cubit.dart';
+import 'Cubit_Shop/states.dart';
+import 'Shared/components.dart';
+import 'Shared/constants.dart';
 
 class ProfileScreen extends StatelessWidget {
 

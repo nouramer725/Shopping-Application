@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopapplication/Cubit_Shop/cubit.dart';
-import 'package:shopapplication/Cubit_Shop/states.dart';
-
+import 'Cubit_Shop/cubit.dart';
+import 'Cubit_Shop/states.dart';
 import 'Search_Screen.dart';
 import 'Shared/components.dart';
 

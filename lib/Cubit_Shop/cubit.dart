@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopapplication/Cubit_Shop/states.dart';
-import 'package:shopapplication/Profile_Screen.dart';
-import 'package:shopapplication/cubit_login/cubit.dart';
-import 'package:shopapplication/models/ChangeFavorites_Model.dart';
+import 'package:shopping_app/Cubit_Shop/states.dart';
 import '../Categories_Screen.dart';
 import '../Favourites_Screen.dart';
 import '../Products_Screen.dart';
+import '../Profile_Screen.dart';
 import '../Shared/constants.dart';
+import '../cubit_login/cubit.dart';
+import '../models/ChangeFavorites_Model.dart';
 import '../models/FavoritesModel.dart';
 import '../models/Home_mode.dart';
 import '../models/categoriesModel.dart';

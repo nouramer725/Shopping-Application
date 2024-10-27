@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopapplication/models/Search_Model.dart';
+import 'package:shopping_app/models/Search_Model.dart';
 import '../Shared/constants.dart';
 import '../network/end_points.dart';
 import '../network/remote/dio_helper.dart';
