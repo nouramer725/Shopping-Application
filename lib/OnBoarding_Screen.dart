@@ -4,6 +4,9 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'Login_Screen.dart';
+import 'Shared/components.dart';
+
 class Onboarding {
   final String image;
   final String title;
@@ -61,7 +64,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           TextButton(
             onPressed: () {
               // Navigate to login screen
-              // navigateandfinish(context, ShopLoginScreen());
+              navigateandfinish(context, ShopLoginScreen());
             },
             child: Text(
               'SKIP',
@@ -109,7 +112,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   onPressed: () {
                     if (isLast) {
                       // Navigate to login screen
-                      // navigateandfinish(context, ShopLoginScreen());
+                      navigateandfinish(context, ShopLoginScreen());
                     } else {
                       swipeController.nextPage(
                         duration: Duration(milliseconds: 500),
